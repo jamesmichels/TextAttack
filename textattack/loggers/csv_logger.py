@@ -36,6 +36,10 @@ class CSVLogger(Logger):
             "original_output": result.original_result.output,
             "perturbed_output": result.perturbed_result.output,
             "ground_truth_output": result.original_result.ground_truth_output,
+            # Add new lines for words changed, original probability, and perturbed probability
+            "words changed":original_text.words_diff_num(perturbed_text),
+            "original_proba:":self.original_result.get_colored_output(self.color_method),
+            "perturbed_proba":self.original_result.get_colored_output(self.color_method),
             "num_queries": result.num_queries,
             "result_type": result_type,
         }
