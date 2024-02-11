@@ -37,7 +37,8 @@ class CSVLogger(Logger):
             "perturbed_output": result.perturbed_result.output,
             "ground_truth_output": result.original_result.ground_truth_output,
             # Add new lines for words changed, original probability, and perturbed probability
-            "words changed":len(set(original_text.split()) ^ set(perturbed_text.split())),
+            # Words changed checks words individually, outputs number of words different between the two.
+            "words changed":sum(1 for word1, word2 in zip(original_text.split(), perturbed_text.split()) if word1 != word2),
             "original_proba:":result.original_result.get_colored_output(self.color_method),
             "perturbed_proba":result.perturbed_result.get_colored_output(self.color_method),
             "num_queries": result.num_queries,
