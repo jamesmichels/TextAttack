@@ -38,8 +38,8 @@ class CSVLogger(Logger):
             "ground_truth_output": result.original_result.ground_truth_output,
             # Add new lines for words changed, original probability, and perturbed probability
             "words changed":len(set(original_text.split()) ^ set(perturbed_text.split())),
-            "original_proba:":self.original_result.get_colored_output(self.color_method),
-            "perturbed_proba":self.original_result.get_colored_output(self.color_method),
+            "original_proba:":result.original_result.get_colored_output(self.color_method),
+            "perturbed_proba":result.perturbed_result.get_colored_output(self.color_method),
             "num_queries": result.num_queries,
             "result_type": result_type,
         }
