@@ -40,7 +40,7 @@ class CSVLogger(Logger):
             # Words changed checks words individually, outputs number of words different between the two.
             "words changed":sum(1 for word1, word2 in zip(original_text.split(), perturbed_text.split()) if word1 != word2),
             "original_proba:":result.original_result.get_colored_output(self.color_method),
-            "perturbed_proba":result.perturbed_result.get_colored_output(self.color_method) if result_type = "Successful" else result_type,
+            "perturbed_proba":result.perturbed_result.get_colored_output(self.color_method) if result_type == "Successful" else result_type,
             "num_queries": result.num_queries,
             "result_type": result_type,
         }
